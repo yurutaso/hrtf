@@ -49,8 +49,8 @@ def apply_IR(wavefile, sofafile, output, measurement, R_left=0, R_right=1, E=0):
     out_stereo = np.zeros((out_right.size, 2))
     out_stereo[:,0] = out_left
     out_stereo[:,1] = out_right
-    soundfile.write(output+"_right.wav", out_right, framerate)
-    soundfile.write(output+"_left.wav", out_left, framerate)
+    #soundfile.write(output+"_right.wav", out_right, framerate)
+    #soundfile.write(output+"_left.wav", out_left, framerate)
     soundfile.write(output+".wav", out_stereo, framerate)
 
 if __name__ == '__main__':
@@ -58,6 +58,7 @@ if __name__ == '__main__':
     #sofafile = "./HRTF-Database/SOFA/MRT02.sofa"
     sofafile = "./hrtf_nh2.sofa"
 
+    # TODO: HRTFのsource positionからmeasurement indexを探す
     for measurement in range(0, 1500, 100):
         apply_IR(
                 wavefile=wavefile,
